@@ -8,6 +8,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\LevelController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\PhotoController;
 
 /*
@@ -25,43 +26,6 @@ Route::get('/', function () {
     return 'Selamat Datang';
 });
 
-Route::get('/hello', function (){
-    return 'Hello World';
-});
-
-Route::get('/world', function (){
-    return 'World';
-});
-
-Route::get('/about', function (){
-    return 'NIM: 244107020042 Nama: Nahda Auliya Raudhatunnisa';
-});
-
-Route::get ('/user/{name}', function ($name){
-    return 'Nama saya '.$name;
-});
-
-Route::get ('/posts/{post}/comments/{comment}', function ($postId, $commentId){
-    return 'Pos ke-' .$postId." Komentar ke-: ".$commentId;
-});
-
-// Route::get ('/articles/{id}', function ($id){
-//     return 'Halaman Artikel dengan ID '.$id;
-// });
-
-Route::get ('/user/{name?}', function ($name='John'){
-    return 'Nama saya '.$name;
-});
-
-Route::get('/hello', [WelcomeController::class,'hello']);
-Route::get('/', [HomeController::class,'index']);
-Route::get('/about', [AboutController::class,'about']);
-Route::get('/articles/{id}', [ArticleController::class,'articles']);
-
-Route::resource('photos', PhotoController::class);
-
-Route::get('/greeting', [WelcomeController::class, 'greeting']);
-
 Route::get('/level', [LevelController::class, 'index']);
 
 // Route::get('/greeting', function () {
@@ -70,3 +34,4 @@ Route::get('/level', [LevelController::class, 'index']);
 
 Route::get('/level', [LevelController::class, 'index']);
 Route::get('/kategori', [KategoriController::class, 'index']);
+Route::get('/user', [UserController::class, 'index']);
